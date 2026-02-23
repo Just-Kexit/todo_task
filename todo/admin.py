@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from todo.models import Task
+
+
+@admin.register(Task)
+class TaskAdmin(admin.ModelAdmin):
+    search_fields = ("name",)
+    list_filter = ("is_completed",)
