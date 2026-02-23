@@ -17,6 +17,16 @@
           <span style="color: green;">Done</span>
         {% else %}
           <span style="color: red;">Not Done</span> {% endif %}
+        {% if task.is_completed %}
+          <a href="{% url 'todo:end_switch' pk=task.id%}" class="btn btn-secondary link-to-page">
+            Undo
+          </a>
+        {% else %}
+          <a href="{% url 'todo:end_switch' pk=task.id%}" class="btn btn-success link-to-page">
+            Complete
+          </a>
+        {% endif %}
+
       </h2>
       <p>Created: {{ task.create_at }} {% if task.is_completed %} <span style="color: brown;">Deadline: {{task.deadline}}</span> {% endif %}</p>
       <h3 style="color: grey;">
