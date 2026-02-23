@@ -8,4 +8,5 @@ class TaskAdmin(admin.ModelAdmin):
     search_fields = ("name",)
     list_filter = ("is_completed",)
 
+
 admin.site.register(Tag)

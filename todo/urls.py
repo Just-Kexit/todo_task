@@ -27,4 +27,3 @@ urlpatterns = [
     path("end_switch/<int:pk>", end_switch, name="end_switch"),
 
 ]
-

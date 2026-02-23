@@ -2,6 +2,7 @@ from django import forms
 
 from todo.models import Task, Tag
 
+
 class TaskForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
         queryset=Tag.objects.all(),
