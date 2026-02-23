@@ -5,12 +5,21 @@
     <h1>
       TODO List
     </h1>
+    <br>
     {% if task_list %}
     {% for task in task_list %}
-      <h2>{{ task.name }} {{ task.is_completed }}</h2>
-      <p>Created: {{ task.create_at }} {% if task.is_completed %} Deadline: {{task.deadline}} {% endif %}</p>
-      <h3>Tags:{{ task.tags }}</h3>
-      <br>
+      <h2>
+        {{ task.name }}
+        {% if task.is_completed %}
+          <span style="color: green;">Done</span>
+        {% else %}
+          <span style="color: red;">Not Done</span> {% endif %}
+      </h2>
+      <p>Created: {{ task.create_at }} {% if task.is_completed %} <span style="color: brown;">Deadline: {{task.deadline}}</span> {% endif %}</p>
+      <h3 style="color: grey;">
+        Tags: {% for tag in task.tags.all %} {{ tag.name }} {% endfor %}
+      </h3>
+      <hr>
     {% endfor %}
     {% else %}
       <p>There are no task in the service.</p>
