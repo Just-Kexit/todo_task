@@ -18,11 +18,11 @@
         {% else %}
           <span style="color: red;">Not Done</span> {% endif %}
         {% if task.is_completed %}
-          <a href="{% url 'todo:end_switch' pk=task.id%}" class="btn btn-secondary link-to-page">
+          <a href="{% url 'todo:toggle_task' pk=task.id%}" class="btn btn-secondary link-to-page">
             Undo
           </a>
         {% else %}
-          <a href="{% url 'todo:end_switch' pk=task.id%}" class="btn btn-success link-to-page">
+          <a href="{% url 'todo:toggle_task' pk=task.id%}" class="btn btn-success link-to-page">
             Complete
           </a>
         {% endif %}
