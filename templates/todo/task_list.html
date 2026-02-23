@@ -12,7 +12,7 @@
     {% if task_list %}
     {% for task in task_list %}
       <h2>
-        {{ task.name }}
+        {{ task.content }}
         {% if task.is_completed %}
           <span style="color: green;">Done</span>
         {% else %}
@@ -21,6 +21,12 @@
       <p>Created: {{ task.create_at }} {% if task.is_completed %} <span style="color: brown;">Deadline: {{task.deadline}}</span> {% endif %}</p>
       <h3 style="color: grey;">
         Tags: {% for tag in task.tags.all %} {{ tag.name }} {% endfor %}
+      <a href="{% url 'todo:task_update' pk=task.id %}">
+      Update
+      </a>
+      <a href="{% url 'todo:task_delete' pk=task.id %}">
+      Delete
+      </a>
       </h3>
       <hr>
     {% endfor %}
